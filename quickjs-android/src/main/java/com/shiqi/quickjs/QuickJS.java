@@ -104,7 +104,7 @@ public class QuickJS {
     }
   }
 
-  static {
+  public static void init(){
     System.loadLibrary("quickjs-android");
   }
 
