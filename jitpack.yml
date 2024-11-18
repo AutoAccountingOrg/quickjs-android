@@ -1,5 +1,4 @@
 jdk:
   - openjdk17
-build:
-  commands:
-    - ./gradlew clean assemble
+before_install:
+  - git submodule update --init --recursive
