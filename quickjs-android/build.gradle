@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -58,6 +59,21 @@ android {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact "$buildDir/outputs/aar/${project.name}-release.aar"
+            groupId = 'net.ankio' // 替换为您的包名
+            artifactId = 'quickjs-android' // 替换为您的库名
+            version = '1.0.3' // 替换为您的库版本
+        }
+    }
+
+    repositories {
+        mavenLocal() // 将库发布到本地 Maven 仓库
     }
 }
 
