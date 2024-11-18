@@ -80,3 +80,6 @@ publishing {
 dependencies {
     implementation 'androidx.annotation:annotation:1.6.0'
 }
+tasks.named('publishMavenPublicationToMavenLocal') {
+    dependsOn ':quickjs-android:bundleReleaseAar'
+}
